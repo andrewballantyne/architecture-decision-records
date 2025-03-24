@@ -31,9 +31,9 @@ sequenceDiagram
 
     EndUser->>Browser: Request Dashboard HTML
     Browser--xOAuthProxy: (Not logged in)
-    OAuthProxy-->Browser: Return log in screen
-    Browser-->OAuthProxy: (log in)
-    Browser->>Dashboard: (Logged in) Redirect to Dashboard
+    OAuthProxy-->>Browser: Return log in screen
+    Browser-->>OAuthProxy: (log in)
+    Browser<<->>Dashboard: (Logged in) Redirect to Dashboard
 ```
 
 
