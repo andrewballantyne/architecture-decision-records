@@ -39,8 +39,10 @@ sequenceDiagram
 ```mermaid
 sequenceDiagram
     participant DashboardUI as Dashboard UI (Browser)
-    participant OAuthProxy as OAuthProxy (Container)
-    participant Dashboard as Dashboard (Container)
+    box Dashboard Pod
+    participant OAuthProxy
+    participant Dashboard
+    end
     participant OpenShift as OpenShift Console K8s
 
     DashboardUI->>Dashboard: Request Infrastructure Data
