@@ -36,6 +36,22 @@ sequenceDiagram
     Browser<<->>Dashboard: (Logged in) Redirect to Dashboard
 ```
 
+```mermaid
+sequenceDiagram
+    participant DashboardUI as Dashboard UI (Browser)
+    participant OAuthProxy as OAuthProxy (Container)
+    participant Dashboard as Dashboard (Container)
+    participant OpenShift as OpenShift Console K8s
+
+    DashboardUI->>Dashboard: Request Infrastructure Data
+    Dashboard->>OpenShift: Request K8s Data
+    OpenShift->>Dashboard: Return OdhDashboardConfig
+    OpenShift->>Dashboard: Return Roles
+    OpenShift->>Dashboard: Return Groups
+    Dashboard->>DashboardUI: Return "/config"
+    Dashboard->>DashboardUI: Return "/status"
+```
+
 
 Key takeaways:
 
