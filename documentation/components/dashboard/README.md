@@ -29,7 +29,7 @@ sequenceDiagram
     participant Dashboard
     end
 
-    EndUser->>Browser: Request Dashboard HTML
+    EndUser->>Browser: https://dashboard-route/*
     Browser--xOAuthProxy: (Not logged in)
     OAuthProxy-->>Browser: Return log in screen
     Browser-->>OAuthProxy: (log in)
