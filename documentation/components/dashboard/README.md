@@ -23,15 +23,16 @@ The Dashboard is the primary UI provided for OpenShift AI. The Dashboard serves 
 ```mermaid
 sequenceDiagram
     actor EndUser as End User
-    participant Browser as Dashboard UI (Browser)
+    participant Browser as Browser Window
     box Dashboard Pod
     participant OAuthProxy
     participant Dashboard
     end
 
     EndUser->>Browser: Request Dashboard HTML
-    Browser<<->>OAuthProxy: (Not logged in) Redirect to OAuth Proxy
-    EndUser<<->>OAuthProxy: Login via OAuth Proxy's Page
+    Browser--xOAuthProxy: (Not logged in)
+    OAuthProxy-->Browser: Return log in screen
+    Browser-->OAuthProxy: (log in)
     Browser->>Dashboard: (Logged in) Redirect to Dashboard
 ```
 
