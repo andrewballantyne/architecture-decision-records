@@ -27,6 +27,7 @@ sequenceDiagram
     box Purple Dashboard Pod
     participant OAuthProxy
     participant Dashboard
+    end
 
     EndUser->>DashboardUI: Request Dashboard HTML
     DashboardUI->>OAuthProxy: (Not logged in) Redirect to OAuth Proxy
