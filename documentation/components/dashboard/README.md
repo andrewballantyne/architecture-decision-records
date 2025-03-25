@@ -32,10 +32,10 @@ sequenceDiagram
     EndUser->>DashboardUI: https://dashboard-route/*
     DashboardUI--xOAuthProxy: (Not logged in)
     OAuthProxy-->>DashboardUI: Return log in screen
-    EndUser-->>DashboardUI: (log in)
-    DashboardUI-->>OAuthProxy: (log in)
-    DashboardUI-->>Dashboard: Redirect to Dashboard
-    Dashboard-->>DashboardUI: Return HTML Page
+    EndUser->>DashboardUI: (log in)
+    DashboardUI->>OAuthProxy: (successful log in)
+    OAuthProxy->>Dashboard: Redirect to Dashboard
+    Dashboard->>DashboardUI: Return HTML Page
 ```
 
 
